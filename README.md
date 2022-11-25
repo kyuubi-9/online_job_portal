@@ -11,6 +11,7 @@ pip install django
 pip install -r requirements.txt
 
 --after making changes---
+
 git checkout -b <branch_name>
 
 git add .
