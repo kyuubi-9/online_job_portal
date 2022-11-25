@@ -15,5 +15,7 @@ pip install -r requirements.txt
 git checkout -b <branch_name>
 
 git add .
+
 git commit -m "vchdch"
+
 git push -u origin [branchname]
