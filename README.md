@@ -19,3 +19,7 @@ git add .
 git commit -m "vchdch"
 
 git push -u origin [branchname]
+
+
+extraa references:
+https://github.com/git-guides/git-push
