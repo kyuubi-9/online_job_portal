@@ -3,7 +3,7 @@ from . models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from datetime import date
-
+from django.contrib import messages
 def index(request):
     return render(request, "index.html")
 
@@ -46,8 +46,8 @@ def user_homepage(request):
         applicant.user.save()
 
         try:
-            image = request.FILES['image']
-            applicant.image = image
+            # image = request.FILES['image']
+            # applicant.image = image
             applicant.save()
         except:
             pass
@@ -95,23 +95,24 @@ def all_applicants(request):
 
 def signup(request):
     if request.method=="POST":   
-        print("in signup page")
         username = request.POST['email']
+        email = username
         first_name=request.POST['first_name']
         last_name=request.POST['last_name']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         phone = request.POST['phone']
         gender = request.POST['gender']
-        image = request.FILES['image']
+        # image = request.FILES['image']
 
-        print()
         if password1 != password2:
             messages.error(request, "Passwords do not match.")
             return redirect('/signup')
         
-        user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password1)
-        applicants = Applicant.objects.create(user=user, phone=phone, gender=gender, image=image, type="applicant")
+        user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password1)
+        applicants = Applicant.objects.create(user=user, phone=phone, gender=gender,type="applicant")
+        # applicants = Applicant.objects.create(user=user, phone=phone, gender=gender, image=image, type="applicant")
+
         user.save()
         applicants.save()
         return render(request, "user_login.html")
@@ -126,6 +127,8 @@ def company_signup(request):
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         phone = request.POST['phone']
+        # gender = request.POST['gender']
+        # image = request.FILES['image']
         company_name = request.POST['company_name']
 
         if password1 != password2:
@@ -133,7 +136,9 @@ def company_signup(request):
             return redirect('/signup')
         
         user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password1)
-        company = Company.objects.create(user=user, phone=phone,company_name=company_name, type="company", status="pending")
+        company = Company.objects.create(user=user, phone=phone, company_name=company_name, type="company", status="pending")
+        # company = Company.objects.create(user=user, phone=phone, gender=gender, image=image, company_name=company_name, type="company", status="pending")
+
         user.save()
         company.save()
         return render(request, "company_login.html")
@@ -164,19 +169,19 @@ def company_homepage(request):
         first_name=request.POST['first_name']
         last_name=request.POST['last_name']
         phone = request.POST['phone']
-        gender = request.POST['gender']
+        # gender = request.POST['gender']
 
         company.user.email = email
         company.user.first_name = first_name
         company.user.last_name = last_name
         company.phone = phone
-        company.gender = gender
+        # company.gender = gender
         company.save()
         company.user.save()
 
         try:
-            image = request.FILES['image']
-            company.image = image
+            # image = request.FILES['image']
+            # company.image = image
             company.save()
         except:
             pass
@@ -198,7 +203,9 @@ def add_job(request):
         description = request.POST['description']
         user = request.user
         company = Company.objects.get(user=user)
-        job = Job.objects.create(company=company, title=title,start_date=start_date, end_date=end_date, salary=salary, image=company.image, experience=experience, location=location, skills=skills, description=description, creation_date=date.today())
+        # job = Job.objects.create(company=company, title=title,start_date=start_date, end_date=end_date, salary=salary, image=company.image, experience=experience, location=location, skills=skills, description=description, creation_date=date.today())
+        job = Job.objects.create(company=company, title=title,start_date=start_date, end_date=end_date, salary=salary, experience=experience, location=location, skills=skills, description=description, creation_date=date.today())
+
         job.save()
         alert = True
         return render(request, "add_job.html", {'alert':alert})
@@ -248,8 +255,8 @@ def company_logo(request, myid):
         return redirect("/company_login")
     job = Job.objects.get(id=myid)
     if request.method == "POST":
-        image = request.FILES['logo']
-        job.image = image 
+        # image = request.FILES['logo']
+        # job.image = image 
         job.save()
         alert = True
         return render(request, "company_logo.html", {'alert':alert})
