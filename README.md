@@ -10,7 +10,22 @@ pip install django
 
 pip install -r requirements.txt
 
---after making changes---
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+--after making changes in models.py---
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+
+--after making any changes---
 
 git checkout -b <branch_name>
 
@@ -22,4 +37,7 @@ git push -u origin [branchname]
 
 
 extraa references:
+
 https://github.com/git-guides/git-push
+
+https://www.youtube.com/watch?v=rYwwz1b2Nss
