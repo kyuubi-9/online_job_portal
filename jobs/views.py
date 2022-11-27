@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from datetime import date
 from django.contrib import messages
-def index(request):
-    return render(request, "index.html")
+def index(request):    
+ jobs = Job.objects.all().order_by('-start_date')         
+ return render(request, "index.html", {'jobs':jobs})
 
 def user_login(request):
     if request.user.is_authenticated:
@@ -14,15 +15,23 @@ def user_login(request):
         if request.method == "POST":
             username = request.POST['username']
             password = request.POST['password']
+
+            print("\n",username)
             user = authenticate(username=username, password=password)
+            print("\n user is authenticated : ",user,"\n")
 
             if user is not None:
                 user1 = Applicant.objects.get(user=user)
+                print("\n user is not  none : ",user1,"\n")
+
                 if user1.type == "applicant":
+                    print("user is applicant")
                     login(request, user)
+                    print("\n login")
                     return redirect("/user_homepage")
             else:
                 thank = True
+                print("user is none")
                 return render(request, "user_login.html", {"thank":thank})
     return render(request, "user_login.html")
 
@@ -133,7 +142,7 @@ def company_signup(request):
 
         if password1 != password2:
             messages.error(request, "Passwords do not match.")
-            return redirect('/signup')
+            return redirect('/company_login')
         
         user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password1)
         company = Company.objects.create(user=user, phone=phone, company_name=company_name, type="company", status="pending")
@@ -209,6 +218,8 @@ def add_job(request):
         job.save()
         alert = True
         return render(request, "add_job.html", {'alert':alert})
+
+    print("\n not post")
     return render(request, "add_job.html")
 
 def job_list(request):
@@ -335,3 +346,9 @@ def delete_company(request, myid):
     company = User.objects.filter(id=myid)
     company.delete()
     return redirect("/all_companies")
+
+def about_us(request):
+    return render(request, "about.html")
+
+def contact(request):
+ return render(request, "contact.html")

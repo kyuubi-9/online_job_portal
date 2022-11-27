@@ -1,0 +1,68 @@
+{% extends 'basic.html' %}
+
+{% block title %} About Us {% endblock %}
+{% block about_us %} active {% endblock %}
+{% block body %}
+<style>
+
+.image{
+    background: url("/static/aboutus.jpeg");
+    background-attachment:fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.flex-1
+  {
+      display: flex;
+      justify-content: center;
+  }
+
+ .para{
+     text-align: center;
+     color: white;
+     font-weight: 800;
+ }
+
+ h2{
+     color: rgb(255, 230, 0);
+ }
+
+ p{
+     margin-bottom: 0;
+     padding-bottom: 15px;
+     font-style: oblique;
+ }
+
+</style>
+
+<div class="image">
+    <div class="flex-1">
+        <div class="sec-a">
+            <h2>ABOUT US</h2>
+        </div>
+    </div>
+
+    <div class="para">
+        <p>Welcome to JobHunters<br>
+            where we provide you a platform to search for appropriate job.</p>
+
+        <p>We provide credible information and on-time job vacancy updates that matter to you. </p><br>
+
+        <p>We are dedicated to providing quality job information and to upholding the integrity of our editorial process.</p>
+        <p>We pride ourselves in knowing our audience's needs and delivering the most appropriate experience.</p>
+        <p>We are committed to improving our site. <br>
+
+        We will continue to publish even more content and services to help make your life better, <br>to help you find your way when faced with career decisions, and to help you quickly find jobs that matches your skill</p>
+
+        <p>We hope you enjoy our services as much as we enjoy offering them to you.</p>
+        <p>If you have any queries or comments, please do not hesitate to contact us.</p><br>
+
+    </div>
+    {% endblock %}
+ 

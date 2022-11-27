@@ -5,17 +5,115 @@
 {% block css %}
 {% endblock %}
 {% block body %}
-{% load static %}   
-<div class="container-fluid mt-2">
-    <img src="{% static 'Recruitment Vector.png' %}" alt="" width="100%" height="450px">
+<!-- {% load static %}    -->
+
+<style>
+.openings{
+    text-align: center;
+    margin: 20px;
+}
+
+.mt-2{
+    width: fit-content;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: #353c7c;
+    color: white;
+}
+
+h3 {
+
+font-weight: 700;
+font-size: 25px;
+letter-spacing: 0;
+padding: .25em 0 .325em;
+display: block;
+margin: 0 auto;
+text-shadow: 0 0 80px rgba(255,255,255,.5);
+
+background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+-webkit-background-clip: text;
+background-clip: text;
+
+-webkit-text-fill-color: transparent;
+-webkit-animation: aitf 60s linear infinite;
+-webkit-transform: translate3d(0,0,0);
+-webkit-backface-visibility: hidden;
+
+}
+
+@-webkit-keyframes aitf {
+0% { background-position: 0% 50%; }
+100% { background-position: 100% 50%; }
+}
+
+.abutton{
+    background-color: #353c7c;
+    color: white;
+    padding: 8px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+</style>
+
+<div class="openings">
+    <div class="container-fluid mt-2">
+        <!-- <img src="{% static 'background.webp' %}" alt="" width="100%" height="100%" style=" background-position: center;">  -->
+        
+          <h3>Available Openings</h3>
+        </div>
 </div>
-    <div class="container-fluid mt-2" style="background-color: #4f868c; width: 100%;">
-        <div class="row">
-            <div class="col-md-4">
-                <h3 style="color: aliceblue;">Contact Us</h3>
-                <p style="color: aliceblue">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jobportal@gmail.com</p>
-                <p style="color: aliceblue">Mobile No.:&nbsp;&nbsp;9745632121</p>
-            </div>
+
+      <div class="container card">
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Description</th>
+                    <th>Salary</th>
+                    <th>Experience</th>
+                    <th>Location</th>
+                    <th>Join</th>
+                </tr>
+                {% for job in jobs %}
+                    <tr>
+                        <td>{{job.company.company_name}}</td>
+                        <td>{{job.title}}</td>
+                        <td>{{job.description}}</td>
+                        <td>{{job.salary}}</td>
+                        <td>{{job.experience}}</td>
+                        <td>{{job.location}}</td>
+                        <td><a href="/user_login/" class="btn btn-info btn-sm abutton" type="submit">Apply</a></td>
+    
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+    <div class="container-fluid footer" style="background-color: #0b0435; width: 100%; position:relative; bottom:0;
+    height:100px;">
+        <div class="f-item">
+            <a href="/about_us/">
+             <span>About Us</span> 
+            </a>
+        </div>
+
+        <div class="f-item">
+            <a href="https://github.com/kyuubi-9/online_job_portal">
+              Github
+            </a>
+        </div>
+
+        <div class="f-item">
+            <a href="/contact/">
+              Contact
+            </a>
+         </div>
+
         </div>
     </div>
     
