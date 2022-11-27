@@ -11,22 +11,47 @@
 
   <title>{% block title %}{% endblock %}</title>
   <style>
-    .navbar {
-      background-color: #4f868c;
+  .navbar {
+      background-color: rgb(0,25,51);
+      height: 120px;
+      display: flex;
+     justify-content: space-between;
+     width: 100%;
     }
 
     .head1 {
-      color: #FBAD30;
-      font-size: 25px;
+      color: #349dff;
+      font-size: 30px;
       font-weight: bold;
       height: 50px;
+      margin-left: 30px;
     }
 
     .head2 {
-      color: #EF4926;
-      font-size: 25px;
+      color: #ffffff;
+      font-size: 30px;
       font-weight: bold;
+      font-family: cursive;
     }
+
+    
+    .nav-item{ 
+      font-size: 16px;
+    }
+
+    .menu{
+      background-color: #353c7c;
+      border-radius: 5%;
+      border: 0px;
+      margin: 5px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link{
+      color: white;
+      font-weight: bold;
+      inline-size: max-content;
+    }
+
   </style>
   {% block css %}
   {% endblock %}
@@ -34,9 +59,11 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <a class="navbar-brand" href="/"><span class="head1">Tech</span><span class="head2">Vidvan</span></a>
-    <a class="navbar-brand" href="#"><span class="head1">Job</span><span class="head2">Portal</span></a>
-    <div class="container w-50">
+    <div class="container">
+      <a class="navbar-brand" href="/company_homepage/"><span class="head1">Job</span><span class="head2">Hunter</span></a>
+    
+    </div>
+   <div class="container w-50">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -44,23 +71,37 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link {% block home %}{% endblock %}" aria-current="page" href="/company_homepage/">Home</a>
-          </li>
+            <button class="menu">
+              <a class="nav-link {% block home %}{% endblock %}" aria-current="page" href="/company_homepage/"> Profile</a>
+          
+            </button>
+           </li>
           <li class="nav-item">
-            <a class="nav-link {% block add_job %} {% endblock %}" aria-current="page" href="/add_job/">Add Jobs</a>
-          </li>
+            <button class="menu">
+              <a class="nav-link {% block add_job %} {% endblock %}" aria-current="page" href="/add_job/">Add Jobs</a>
+        
+            </button>
+             </li>
           <li class="nav-item">
-            <a class="nav-link {% block job_list %}{% endblock %}" href="/job_list/">Job List</a>
-          </li>
+            <button class="menu">
+              <a class="nav-link {% block job_list %}{% endblock %}" href="/job_list/">Jobs</a>
+          
+            </button>
+           </li>
           <li class="nav-item">
-            <a class="nav-link {% block all_applicants %}{% endblock %}" href="/all_applicants/">All Applicants</a>
-          </li>
+            <button class="menu">
+              <a class="nav-link {% block all_applicants %}{% endblock %}" href="/all_applicants/">Applicants</a>
+         
+            </button>
+             </li>
           <li class="nav-item">
-            <a class="nav-link" href="/logout/">Logout</a>
-          </li>
+            <button class="menu">
+              <a class="nav-link" href="/logout/">Logout</a>
+            </button>
+           </li>
         </ul>
         <a class="navbar-brand" style="font-weight: bold; font-family: 'Times New Roman', Times, serif;"
-          href="#">Welcome {{request.user.get_full_name}}</a>
+          href="#">Welcome {{request.user.get_full_name}} !</a>
       </div>
     </div>
   </nav>
