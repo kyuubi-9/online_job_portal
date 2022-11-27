@@ -16,7 +16,6 @@
       height: 120px;
       display: flex;
      justify-content: space-between;
-     width: 100%;
     }
 
     .head1 {
@@ -60,7 +59,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="/company_homepage/"><span class="head1">Job</span><span class="head2">Hunter</span></a>
+      <a class="navbar-brand" href="/"><span class="head1">Job</span><span class="head2">Hunter</span></a>
     
     </div>
    <div class="container w-50">
@@ -72,7 +71,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <button class="menu">
-              <a class="nav-link {% block home %}{% endblock %}" aria-current="page" href="/company_homepage/"> Profile</a>
+              <a class="nav-link {% block home %}{% endblock %}" aria-current="page" href="/company_homepage/">Home</a>
           
             </button>
            </li>
@@ -90,7 +89,7 @@
            </li>
           <li class="nav-item">
             <button class="menu">
-              <a class="nav-link {% block all_applicants %}{% endblock %}" href="/all_applicants/">Applicants</a>
+<a class="nav-link {% block all_applicants %}{% endblock %}" href="/all_applicants/">Applicants</a>
          
             </button>
              </li>
@@ -98,10 +97,9 @@
             <button class="menu">
               <a class="nav-link" href="/logout/">Logout</a>
             </button>
-           </li>
+          </li>
         </ul>
-        <a class="navbar-brand" style="font-weight: bold; font-family: 'Times New Roman', Times, serif;"
-          href="#">Welcome {{request.user.get_full_name}} !</a>
+        
       </div>
     </div>
   </nav>
