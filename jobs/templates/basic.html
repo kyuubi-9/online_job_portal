@@ -45,6 +45,10 @@
     .navbar-dark .navbar-nav .nav-link{
       color: white
     }
+    
+    .navbar-nav > li{
+  margin-left:90px;
+}
 
   </style>
   {% block css %}
@@ -73,11 +77,6 @@
           <li class="nav-item">
             <button class="menu">
             <a class="nav-link {% block user_login %} {% endblock %}" href="/user_login/">User Login</a>
-          </button>
-          </li>
-          <li class="nav-item">
-            <button class="menu">
-            <a class="nav-link {% block admin_login %} {% endblock %}" href="/admin_login/">Admin Login</a>
           </button>
           </li>
           <li class="nav-item">

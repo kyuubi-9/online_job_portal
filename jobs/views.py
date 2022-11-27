@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from datetime import date
 from django.contrib import messages
+
+
 def index(request):
     return render(request, "index.html")
 
@@ -51,7 +53,7 @@ def user_homepage(request):
             applicant.save()
         except:
             pass
-        alert = True
+        alert = True  
         return render(request, "user_homepage.html", {'alert':alert})
     return render(request, "user_homepage.html", {'applicant':applicant})
 
@@ -335,3 +337,10 @@ def delete_company(request, myid):
     company = User.objects.filter(id=myid)
     company.delete()
     return redirect("/all_companies")
+
+def available_jobs(request):
+    jobs = Job.objects.all().order_by('-start_date')
+    
+    return render(request, "available_jobs.html", {'jobs':jobs})
+
+
