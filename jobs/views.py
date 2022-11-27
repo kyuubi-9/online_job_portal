@@ -46,12 +46,23 @@ def user_homepage(request):
         last_name=request.POST['last_name']
         phone = request.POST['phone']
         gender = request.POST['gender']
+        skills = request.POST['skills']
+        education = request.POST['education']
+        current_position = request.POST['current_position']
+        experiance = request.POST['experiance']
+
 
         applicant.user.email = email
         applicant.user.first_name = first_name
         applicant.user.last_name = last_name
         applicant.phone = phone
         applicant.gender = gender
+
+        applicant.skills=skills
+        applicant.education = education
+        applicant.current_position = current_position
+        applicant.experiance = experiance
+
         applicant.save()
         applicant.user.save()
 
@@ -113,6 +124,14 @@ def signup(request):
         password2 = request.POST['password2']
         phone = request.POST['phone']
         gender = request.POST['gender']
+
+        skills = request.POST['skills']
+        education = request.POST['education']
+        current_position = request.POST['current_position']
+        experiance = request.POST['experiance']
+
+
+
         # image = request.FILES['image']
 
         if password1 != password2:
@@ -120,7 +139,7 @@ def signup(request):
             return redirect('/signup')
         
         user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=username, password=password1)
-        applicants = Applicant.objects.create(user=user, phone=phone, gender=gender,type="applicant")
+        applicants = Applicant.objects.create(user=user, phone=phone, gender=gender,type="applicant",skills=skills,education=education,current_position=current_position,experiance=experiance)
         # applicants = Applicant.objects.create(user=user, phone=phone, gender=gender, image=image, type="applicant")
 
         user.save()

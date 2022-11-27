@@ -1,6 +1,6 @@
 digraph model_graph {
   // Dotfile by Django-Extensions graph_models
-  // Created: 2022-11-27 11:06
+  // Created: 2022-11-27 13:32
   // Cli Options: -a
 
   fontname = "Roboto"
@@ -538,6 +538,30 @@ digraph model_graph {
     
     
       <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Roboto">current_position</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Roboto">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Roboto">education</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Roboto">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Roboto">experiance</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Roboto">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
       <FONT FACE="Roboto">gender</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Roboto">CharField</FONT>
@@ -547,6 +571,14 @@ digraph model_graph {
     
       <TR><TD ALIGN="LEFT" BORDER="0">
       <FONT FACE="Roboto">phone</FONT>
+      </TD><TD ALIGN="LEFT">
+      <FONT FACE="Roboto">CharField</FONT>
+      </TD></TR>
+    
+    
+    
+      <TR><TD ALIGN="LEFT" BORDER="0">
+      <FONT FACE="Roboto">skills</FONT>
       </TD><TD ALIGN="LEFT">
       <FONT FACE="Roboto">CharField</FONT>
       </TD></TR>

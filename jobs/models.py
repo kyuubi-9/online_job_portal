@@ -7,6 +7,10 @@ class Applicant(models.Model):
     # image = models.ImageField(upload_to="")
     gender = models.CharField(max_length=10)
     type = models.CharField(max_length=15)
+    education = models.CharField(max_length=15)
+    skills = models.CharField(max_length=15)
+    current_position = models.CharField(max_length=15)
+    experiance = models.CharField(max_length=100)
 
     def __str__(self):
         return self.user.first_name
