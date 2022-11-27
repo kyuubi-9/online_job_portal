@@ -1,0 +1,83 @@
+{% extends 'basic.html' %}
+
+{% block title %} Contact {% endblock %}
+{% block contact %} active {% endblock %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.image{
+    background: url(https://images.pexels.com/photos/41949/earth-earth-at-night-night-lights-41949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position: center;
+    height: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2{
+    color: rgb(252, 0, 138);
+}
+
+h4{
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+h5{
+    margin: 0;
+}
+
+.contact{
+    margin: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .icon{
+    margin: 10px;
+    color: rgb(255, 0, 85);
+  }
+
+</style>
+
+<div class="image"> 
+    <div>
+   <h2>Contact Us</h2>
+  </div>
+  <div>
+    <h4>Have a question? Need a tip?</h4>
+  </div>
+  <div>
+    <h4>If you can't find what you're looking for,</h4>
+  </div>
+  <div>
+      <h4>we'd be happy to point you in the right direction.</h4>
+  </div>
+  <div>
+    <h4>Please feel free to send us an email.</h4>
+  </div>
+
+  <div class="contact">
+    <div class="icon">
+      <i class="fa fa-envelope" style="font-size:36px"></i>
+    </div>
+   <div class="icon">
+ <i class="fa fa-facebook" style="font-size:36px"></i>
+  </div>
+  <div class="icon">
+      <i class="fa fa-twitter" style="font-size:36px"></i>
+       </div>
+       <div class="icon">
+          <i class="fa fa-linkedin" style="font-size:36px"></i>
+           </div>
+</div>
+  </div>
+  
+  
+{% endblock %}
+
+

@@ -32,4 +32,8 @@ urlpatterns = [
     path("all_companies/", views.all_companies, name="all_companies"),
     path("change_status/<int:myid>/", views.change_status, name="change_status"),
     path("delete_company/<int:myid>/", views.delete_company, name="delete_company"),
+
+    #aboutus
+    path("about_us/", views.about_us, name="about_us"),
+    path("contact/", views.contact, name="contact")
 ]
