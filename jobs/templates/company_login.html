@@ -5,7 +5,79 @@
 {% block css %}
 {% endblock %}
 {% block body %}
-<form method="POST"> 
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+<style>
+    .card{
+    background: url(https://images.pexels.com/photos/41949/earth-earth-at-night-night-lights-41949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    height: 100%;
+    }
+ form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(50, 7, 90);
+    width: fit-content;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 40px;
+    color: antiquewhite;
+    opacity: 0.8;
+ }
+
+ .labels{
+    margin: 10px;
+ }
+
+ input{
+    padding: 10px;
+    border-radius: 8px;
+ }
+.card{
+    display: flex;
+    align-items: center;
+
+    border: 0px;
+}
+
+.account-type{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+</style>
+<div class="card">
+    <form method="POST"> 
+        {% csrf_token %}
+      <div class="account-type">
+        <h2 style="color: #cd3232;">Employer Login</h2> 
+        <br>
+        <h5>Haven't registered yet? </h5> <br>
+        <a href="/company_signup/" type="submit" class="btn" style=" background-color: #df003f; color: white; font-weight: 700;">Register</a>
+      </div>
+        <div class="labels">
+            <label for="username" class="form-label"><i style="font-weight: bold; margin: 5px;">Username</i><i class="fas fa-user"></i></label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+        </div>
+        <div class="labels">   
+            <label for="password" class="form-label"><i style="font-weight: bold; margin: 5px;">Password</i><i class="fas fa-unlock-alt"></i></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+         
+        </div>
+        <input type="submit" value="Login" class="btn" style="background-color: #df003f;font-weight: 700;color: white; width: 5rem;">
+      </form>
+    </div>
+    {% endblock %}
+    {% block js %} 
+    <script>
+        {% if thank %}
+        alert("Invalid Credentials. Please try again.");
+        window.location.href = "/company_login"
+        {% endif %}
+    </script>
+<!-- <form method="POST"> 
     {% csrf_token %}
     <div class="container mt-5">
         <h6>Haven't register yet, then click here        <a href="/company_signup/" type="submit" class="btn" style="background-color: #4f868c; color: white;">Signup</a>
@@ -22,13 +94,6 @@
         <input type="submit" value="Submit" class="btn" style="background-color: #4f868c; color: white; font-size: larger; width: 8rem;">
 
     </div>
-</form>
-{% endblock %}
-{% block js %}
-<script>
-    {% if alert %}
-    alert("Invalid Credentials. Please try again.");
-    window.location.href = "/company_login"
-    {% endif %}
-</script>
+</form>-->
+
 {% endblock %}

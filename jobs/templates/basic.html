@@ -10,6 +10,9 @@
  
   <title>{% block title %}{% endblock %}</title>
   <style>
+    body,html{
+      height: 100%;
+    }
     .navbar {
       background-color: rgb(0,25,51);
       height: 120px;
@@ -32,7 +35,7 @@
     }
 
     .nav-item{ 
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .menu{
@@ -43,12 +46,21 @@
     }
 
     .navbar-dark .navbar-nav .nav-link{
-      color: white
+      color: white;
+      font-weight: bold;
     }
-    
-    .navbar-nav > li{
-  margin-left:90px;
-}
+
+    .footer{
+      padding: 20px;
+      font-size: 16px;
+      display: flex;
+      justify-content:  center;
+    }
+
+    .f-item{
+      color: white;
+      margin: 5px;
+    }
 
   </style>
   {% block css %}
@@ -76,12 +88,17 @@
           </li>
           <li class="nav-item">
             <button class="menu">
-            <a class="nav-link {% block user_login %} {% endblock %}" href="/user_login/">User Login</a>
+            <a class="nav-link {% block user_login %} {% endblock %}" href="/user_login/">Candidate</a>
           </button>
           </li>
+          <!-- <li class="nav-item">
+            <button class="menu">
+            <a class="nav-link {% block admin_login %} {% endblock %}" href="/admin_login/">Admin Login</a>
+          </button>
+          </li> -->
           <li class="nav-item">
             <button class="menu">
-            <a class="nav-link {% block company_login %} {% endblock %}" href="/company_login/">Company Login</a>
+            <a class="nav-link {% block company_login %} {% endblock %}" href="/company_login/">Employer</a>
           </button>
           </li>
           {% else %}

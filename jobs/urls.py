@@ -34,4 +34,7 @@ urlpatterns = [
     path("delete_company/<int:myid>/", views.delete_company, name="delete_company"),
 
 
+    #aboutus
+    path("about_us/", views.about_us, name="about_us"),
+    path("contact/", views.contact, name="contact"),
 ]
