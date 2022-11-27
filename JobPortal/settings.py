@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-import django_extensions
+# import django_extensions
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -97,9 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
+rebase
 USE_L10N = True
 
 USE_TZ = True
@@ -118,7 +116,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'jobs/media')
 MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-}
+# GRAPH_MODELS = {
+#   'all_applications': True,
+#   'group_models': True,
+# }
